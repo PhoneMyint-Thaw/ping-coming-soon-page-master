@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="fontawesome-free-6/css/all.min.css">
+  
+  
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="images/logo.svg" alt="">
+    <h1>We are launching <span class="soon">soon!</span></h1>
+    <p>Subscribe and get notified</p>
+    <form action="">
+        <input type="email" name="" id="email" placeholder="Your email address..">
+        <small class="error1"><i>Please provide a valid email address</i></small>
+        <small class="error2"><i>"Whoops! It looks like you forgot to add your email"</i></small>
+        <input type="button" value=" Notify Me" class="btn">
+    </form>   
+    <div class="dashboard">
+      <img src="images/illustration-dashboard.png" alt="">
+    </div>
+    <div class="icons">
+      <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-instagram"></i>
+    </div>
+
+    <div class="copyright">&copy; Copyright Ping. All rights reserved.</div>
+  </div>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+
+  <script>
+    var mailformat = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9]+(?:\.[a-zA-Z0-9]+)*$/;
+
+    document.querySelector(".btn").onclick = () => {
+      var email = document.querySelector("#email").value;
+      if(!email){
+        document.querySelector(".error2").style.display = "block";
+        document.querySelector(".error1").style.display = "none";
+      } else if(email.match(mailformat)) {
+        alert("Success");
+        document.querySelector(".error1").style.display = "none";
+        document.querySelector(".error2").style.display = "none";
+        document.querySelector("#email").value = "";
+      } else {
+        document.querySelector(".error1").style.display = "block";
+        document.querySelector(".error2").style.display = "none";
+        document.querySelector("#email").value = "";
+        document.querySelector('#email').placeholder = "example@email/com";
+      }
+      
+    }
+  </script>
+</body>
+</html>
